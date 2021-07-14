@@ -1,0 +1,17 @@
+
+  {
+    "restartable": "rs",
+    "ignore": [".git", "node_modules/", "dist/", "coverage/"],
+    "watch": ["src/"],
+   
+    "execMap": {
+      "ts": "node -r ts-node/register"
+    },
+    "env": {
+      "NODE_ENV": "development",
+      "PORT": "4000",
+      "MONGO_URI": "mongodb+srv://adi1234:Adi2810D@cluster0.udvir.mongodb.net/todolist?retryWrites=true&w=majority"
+    },
+    "ext": "js,json,ts"
+  } 
+
