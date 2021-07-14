@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+*, *::after, *::before{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  --width: 40rem;
+  --clr-bg: rgb(34, 8, 8);
+  --clr-bg-items: rgb(38, 32, 77);
+  --clr-primary: rgb(211, 92, 56);
+  --clr-red: rgb(179, 24, 63);
+  --clr-green: rgb(22, 212, 212);
+  --clr-white: #fff;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  height: 100vh; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ada6a6;
+}
+
+/* Global styles */
+button{
+  padding: 0.5rem 1.2rem;
+  border-radius: 1rem;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Container */
+.todo-container{ 
+  display: flex;
+  width: 50rem;
+  padding: 1rem;
+  min-width: 40rem;
+  background-color: var(--clr-bg);
+  justify-content:center;
+  flex-direction: column;
+  border-radius: 10px;
+  align-items: center;
+}
+
+.todo-container__title{ 
+  color: var(--clr-primary);
+}
+
+/* Add Items */
+.todo-container__add{ 
+  display: flex;
+  margin: 2rem 0;
+  padding: 1rem;
+  background-color: var(--clr-bg-items);
+  align-items: center;
+  justify-content: space-between;
+  width: var(--width);
+
+}
+
+.todo-container__add--inputs{
+  display: flex;
+  width: var(--width);
+}
+
+.todo-container__add--form-control{ 
+  display: block;
+  width: 13rem;
+  margin-right: 0.5rem;
+}
+
+.todo-container__add--form-control label{
+  color: var(--clr-white);
+  margin-bottom: 0.4rem;
+} 
+
+.todo-container__add--form-control input{
+  width: 100%;
+  padding: 1rem;
+  font-family: inherit;
+  border: 1px solid var(--clr-primary);
+  border-radius: 10px;
+  outline: none;
+} 
+
+.todo-container__add--btn{
+  color: var(--clr-primary);
+}
+
+/* Item */
+.todo-container__item{ 
+  display: flex;
+  margin-bottom: 0.5rem;
+  padding: 1rem 1.2rem;
+  background-color: var(--clr-bg-items);
+  align-items: center;
+  justify-content: space-between;
+  width: var(--width);
+}
+
+.todo-container__item--content h2{
+  color: var(--clr-primary);
+  margin-bottom: 0.4rem;
+}
+
+.todo-container__item--content p{
+  color: var(--clr-white);
+  
+}
+
+.lined h2, .lined p{
+  text-decoration: line-through;
+}
+
+.todo-container__item--btns button {
+  margin: 0.2rem 0;
+} 
+
+.green{
+  color: var(--clr-green);
+  border: 1px solid var(--clr-green);
+}
+
+.red{
+  color: var(--clr-red);
+  border: 1px solid var(--clr-red);
+}
