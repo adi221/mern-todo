@@ -6,8 +6,10 @@ import * as dotenv from 'dotenv';
 
 dotenv.config();
 const app: Express = express();
+const mongoUri: string = (process.env.MONGO_URI as string);
+
 (async () => {
-  await mongoose.connect("mongodb+srv://adi1234:Adi2810D@cluster0.udvir.mongodb.net/todolist?retryWrites=true&w=majority", {
+  await mongoose.connect(mongoUri, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
     useCreateIndex: true,
