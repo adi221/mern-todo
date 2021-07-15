@@ -9,7 +9,7 @@ export interface TodoReducerState{
   todos: Todo[];
 }
 
-const initialState: TodoReducerState ={
+export const initialState: TodoReducerState ={
   loading: false,
   error: false,
   loadingSingleItem: false,
