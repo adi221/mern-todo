@@ -42,7 +42,7 @@ const todoReducer = (state: TodoReducerState= initialState, action: Action):Todo
         }
         return todo;
       })
-      return {...state, loading: false, todos: updateTodos}
+      return {...state, loadingSingleItem: false, todos: updateTodos}
     case TodoConstants.UPDATE_TODO_FAIL:
       return {...state, loadingSingleItem: false, error: true }
     // DELETE_TODO

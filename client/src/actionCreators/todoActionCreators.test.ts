@@ -109,9 +109,49 @@ describe('updateTodo action', () =>{
     moxios.uninstall();
   })
 
-  test('todo`s status should be updated to true', () =>{});
+  test('todo`s status should be updated to true', () =>{
+    expect.assertions(1);
+    const newTodo = {...todo, status: !todo.status}
 
-  test('todo`s name and description should be updated', () =>{})
+    const expectedState: TodoReducerState = {
+      loading: false,
+      error: false,
+      loadingSingleItem: false,
+      todos: [newTodo]
+    }
+
+    moxios.wait(() =>{
+      const request = moxios.requests.mostRecent();
+      request.respondWith({status: 200, response: newTodo});
+    })
+    
+    return store.dispatch<any>(updateTodo(newTodo)).then(() =>{
+      const newState = store.getState();
+      expect(newState).toEqual(expectedState);
+    })
+  });
+
+  test('todo`s name and description should be updated', () =>{
+    expect.assertions(1);
+    const newTodo = {...todo, name: 'Second', description: 'desc2'}
+
+    const expectedState: TodoReducerState = {
+      loading: false,
+      error: false,
+      loadingSingleItem: false,
+      todos: [newTodo]
+    }
+
+    moxios.wait(() =>{
+      const request = moxios.requests.mostRecent();
+      request.respondWith({status: 200, response: newTodo});
+    })
+    
+    return store.dispatch<any>(updateTodo(newTodo)).then(() =>{
+      const newState = store.getState();
+      expect(newState).toEqual(expectedState);
+    })
+  })
 })
 
 describe('deleteTodo action', () =>{
