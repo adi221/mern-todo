@@ -2,10 +2,10 @@ import React, {useEffect, useState} from 'react'
 import {Todo} from '../../types/todoTypes';
 
 interface TodoItemProps{
-  todo: Todo;
-  deleteTodoHandler: (todoId: string) => void;
-  updateTodoHandler: (todo: Todo) => void;
-  setEditModeHandler: (todo: Todo) => void;
+  readonly todo: Todo;
+  readonly deleteTodoHandler: (todoId: string) => void;
+  readonly updateTodoHandler: (todo: Todo) => void;
+  readonly setEditModeHandler: (todo: Todo) => void;
 }
 
 const TodoItem:React.FC<TodoItemProps> = ({todo, deleteTodoHandler, updateTodoHandler, setEditModeHandler}) => {

@@ -29,7 +29,7 @@ const todoReducer = (state: TodoReducerState= initialState, action: Action):Todo
     case TodoConstants.ADD_TODO_LOADING:
       return {...state, loadingSingleItem: true }
     case TodoConstants.ADD_TODO_SUCCESS:
-      return {...state, loading: false, todos: [action.payload, ...state.todos ] }
+      return {...state, loadingSingleItem: false, todos: [action.payload, ...state.todos ] }
     case TodoConstants.ADD_TODO_FAIL:
       return {...state, loadingSingleItem: false, error: true }
     // UPDATE_TODO
@@ -50,7 +50,7 @@ const todoReducer = (state: TodoReducerState= initialState, action: Action):Todo
       return {...state, loadingSingleItem: true }
     case TodoConstants.DELETE_TODO_SUCCESS:
       const updateTodos2 = state.todos.filter(todo => todo._id !== action.payload.id);
-      return {...state, loading: false, todos: updateTodos2}
+      return {...state, loadingSingleItem: false, todos: updateTodos2}
     case TodoConstants.DELETE_TODO_FAIL:
       return {...state, loadingSingleItem: false, error: true }
     default:

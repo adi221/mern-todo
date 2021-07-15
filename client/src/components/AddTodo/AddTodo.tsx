@@ -1,12 +1,12 @@
 import React from 'react'
 
 interface AddTodoProps{
-  addTodoHandler: (e: React.FormEvent ,name: string, description: string) => void;
-  name: string;
-  onNameChange: (val: string) => void;
-  description: string;
-  onDescChange: (val: string) => void;
-  isEdittingMode: boolean;
+  readonly addTodoHandler: (e: React.FormEvent ,name: string, description: string) => void;
+  readonly name: string;
+  readonly onNameChange: (val: string) => void;
+  readonly description: string;
+  readonly onDescChange: (val: string) => void;
+  readonly isEdittingMode: boolean;
 }
 
 const AddTodo:React.FC<AddTodoProps> = ({addTodoHandler, name, onNameChange, description, onDescChange, isEdittingMode}) => {

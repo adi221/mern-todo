@@ -2,6 +2,7 @@ import {createStore, applyMiddleware, Store} from 'redux';
 import todoReducer from '../reducers/todoReducer'; /* import rootReducer if use more reducres*/
 import {middlewares} from '../store/store';
 import {ShallowWrapper} from 'enzyme';
+import {TodoReducerState} from '../reducers/todoReducer';
 
 /**
  * Function to find a component by it's data-test attribute
@@ -23,6 +24,13 @@ export const findByTestAttr = (component: ShallowWrapper , attr: string): Shallo
  * @param {object} initialState Initial state for the store.
  * @returns {store} Redux store
  */
-export const storeFactory = (): Store=> {
-  return createStore(todoReducer, applyMiddleware(...middlewares));
+export const storeFactory = (initialState:object={}): Store=> {
+  const initialStore: TodoReducerState = {
+    loading: false, 
+    loadingSingleItem: false, 
+    error: false, 
+    todos: [], 
+    ...initialState};
+
+  return createStore(todoReducer,initialStore, applyMiddleware(...middlewares));
 };
