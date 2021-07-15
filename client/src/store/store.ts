@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import {composeWithDevTools} from 'redux-devtools-extension';
 import todoReducer from '../reducers/todoReducer';
 
-const middlewares = [thunk];
+export const middlewares = [thunk];
 const middlewareEnhancer = applyMiddleware(...middlewares)
 
 const store = createStore(todoReducer, composeWithDevTools(middlewareEnhancer));
