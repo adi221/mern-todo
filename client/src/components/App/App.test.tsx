@@ -1,14 +1,24 @@
 import React from 'react';
 import App from './App';
-import { shallow } from 'enzyme'
+import { mount, ReactWrapper } from 'enzyme';
+import {storeFactory} from '../../utils/testUtils';
+import { Provider } from 'react-redux';
 
+const setup = () => {
+  const store = storeFactory();
+  return mount(<Provider store={store}><App/></Provider>)
+}
 
-test('renders without crashing', () => {
-  const component = shallow(<App/>);
-  expect(component.length).toBe(1);
-});
+describe('App renders', () => {
+  let component: ReactWrapper;
+  beforeEach(() => component = setup());
 
-test('expect title to be `Todo List`', () => {
-  const component = shallow(<App/>);
-  expect(component.find('h1').text()).toBe('Todo List');
+  test('renders without crashing', () => {
+    expect(component.length).toBe(1);
+  });
+  
+  test('expect title to be `Loading...` because initially loading is true', () => {
+    expect(component.find('h1').text()).toBe('Loading...');
+  })
 })
+

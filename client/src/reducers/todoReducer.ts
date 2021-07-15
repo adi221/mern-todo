@@ -2,7 +2,7 @@ import {Todo} from "../types/todoTypes";
 import {Action} from "../actions/todoActions";
 import {TodoConstants} from "../constants/todoConstants";
 
-interface TodoReducerState{
+export interface TodoReducerState{
   loading: boolean;
   error: boolean;
   loadingSingleItem: boolean;
