@@ -4,7 +4,7 @@ import Todo from '../../models/todo';
 
 const getTodos = async(req: Request, res: Response): Promise<void> => {
   try {
-    const todos = await Todo.find();
+    const todos = await Todo.find({}, null, {sort: {createdAt: -1}});
     res.status(200).send(todos)
   } catch (error) {
     res.status(401).json({success: false, message: 'Could not find todos'})
@@ -53,7 +53,6 @@ const updateTodo = async(req: Request, res: Response): Promise<void> => {
 const deleteTodo = async(req: Request, res: Response): Promise<void> => {
   try {
     const {id} = req.params;
-
     const deletedTodo: ITodo | null = await Todo.findByIdAndRemove(id);
     res.json({success: false, message: 'Deleted'})
   } catch (error) {

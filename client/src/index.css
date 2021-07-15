@@ -8,21 +8,24 @@
 
 :root{
   --width: 40rem;
-  --clr-bg: rgb(34, 8, 8);
-  --clr-bg-items: rgb(38, 32, 77);
-  --clr-primary: rgb(211, 92, 56);
-  --clr-red: rgb(179, 24, 63);
-  --clr-green: rgb(22, 212, 212);
+  --clr-bg: #2c2c94;
+  --clr-bg-items: #2f2fb9;
+  --clr-primary: #ff6348;
+  --clr-red: #ff4757;
+  --clr-green: #2ed573;
   --clr-white: #fff;
+  --clr-gold: #ff7f50;
 }
 
 body {
   font-family: 'Open Sans', sans-serif;
-  height: 100vh; 
+  min-height: 100vh; 
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #ada6a6;
+  padding: 2rem 0;
+  overflow-y: auto;
 }
 
 /* Global styles */
@@ -118,7 +121,7 @@ button{
 }
 
 .todo-container__item--btns button {
-  margin: 0.2rem 0;
+  margin: 0 0.2rem ;
 } 
 
 .green{
@@ -130,3 +133,9 @@ button{
   color: var(--clr-red);
   border: 1px solid var(--clr-red);
 }
+
+.gold{
+  color: var(--clr-gold);
+  border: 1px solid var(--clr-gold);
+}
+

@@ -29,7 +29,7 @@ const todoReducer = (state: TodoReducerState= initialState, action: Action):Todo
     case TodoConstants.ADD_TODO_LOADING:
       return {...state, loadingSingleItem: true }
     case TodoConstants.ADD_TODO_SUCCESS:
-      return {...state, loading: false, todos: [...state.todos, action.payload] }
+      return {...state, loading: false, todos: [action.payload, ...state.todos ] }
     case TodoConstants.ADD_TODO_FAIL:
       return {...state, loadingSingleItem: false, error: true }
     // UPDATE_TODO
@@ -38,7 +38,7 @@ const todoReducer = (state: TodoReducerState= initialState, action: Action):Todo
     case TodoConstants.UPDATE_TODO_SUCCESS:
       const updateTodos = state.todos.map(todo =>{
         if(todo._id === action.payload._id){
-          todo = {...todo, ...action.payload}
+          todo = {...action.payload}
         }
         return todo;
       })

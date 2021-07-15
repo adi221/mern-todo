@@ -5,10 +5,11 @@ interface TodoItemProps{
   todo: Todo;
   deleteTodoHandler: (todoId: string) => void;
   updateTodoHandler: (todo: Todo) => void;
+  setEditModeHandler: (todo: Todo) => void;
 }
 
-const TodoItem:React.FC<TodoItemProps> = ({todo, deleteTodoHandler, updateTodoHandler}) => {
-  const [isCompleted, setIsCompleted] = useState(false);
+const TodoItem:React.FC<TodoItemProps> = ({todo, deleteTodoHandler, updateTodoHandler, setEditModeHandler}) => {
+  const [isCompleted, setIsCompleted] = useState<boolean>(false);
   const {status, name, description, _id} = todo;
 
   useEffect(() =>{
@@ -22,6 +23,7 @@ const TodoItem:React.FC<TodoItemProps> = ({todo, deleteTodoHandler, updateTodoHa
         <p>{description}</p>
       </div>
       <div className="todo-container__item--btns">
+        <button className="gold" onClick={() => setEditModeHandler(todo)}>Edit</button>
         <button className='green' onClick={() => {
           updateTodoHandler({...todo, status: !isCompleted});
           setIsCompleted(!isCompleted);
